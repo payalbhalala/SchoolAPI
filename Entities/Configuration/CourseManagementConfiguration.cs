@@ -5,13 +5,13 @@ using System;
 
 namespace Entities.Configuration
 {
-    public class UserConfiguration : IEntityTypeConfiguration<User>
+    public class CourseManagementConfiguration : IEntityTypeConfiguration<CourseManagement>
     {
-        public void Configure(EntityTypeBuilder<User> builder)
+        public void Configure(EntityTypeBuilder<CourseManagement> builder)
         {
             builder.HasData
             (
-                new User
+                new CourseManagement
                 {
                     Id = new Guid("80abbca8-664d-4b20-b5de-024705497d4a"),
                     UserName = "pbhalala",

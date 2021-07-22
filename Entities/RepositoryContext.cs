@@ -15,9 +15,17 @@ namespace Entities
         {
             modelBuilder.ApplyConfiguration(new OrganizationConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new SectionEnrollmentConfiguration());
+            modelBuilder.ApplyConfiguration(new CourseSectionConfiguration());
+            modelBuilder.ApplyConfiguration(new CourseManagementConfiguration());
+            modelBuilder.ApplyConfiguration(new CourseAssignmentConfiguration());
         }
 
         public DbSet<Organization> Organizations { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<SectionEnrollment> SectionEnrollments { get; set; }
+        public DbSet<CourseSection> CourseSections { get; set; }
+        public DbSet<CourseSection> CourseManagements { get; set; }
+        public DbSet<CourseAssignment> CourseAssignments { get; set; }
     }
 }   

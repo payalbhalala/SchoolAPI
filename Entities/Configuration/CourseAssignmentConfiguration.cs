@@ -5,9 +5,9 @@ using System;
 
 namespace Entities.Configuration
 {
-    public class UserConfiguration : IEntityTypeConfiguration<User>
+    public class CourseAssignmentConfiguration : IEntityTypeConfiguration<CourseAssignment>
     {
-        public void Configure(EntityTypeBuilder<User> builder)
+        public void Configure(EntityTypeBuilder<CourseAssignment> builder)
         {
             builder.HasData
             (
