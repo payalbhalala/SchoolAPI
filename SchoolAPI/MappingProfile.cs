@@ -15,6 +15,22 @@ namespace CompanyEmployees
             CreateMap<User, UserDto>()
                     .ForMember(c => c.FullAddress,
                         opt => opt.MapFrom(x => string.Join(' ', x .Email, x.Name)));
+
+            CreateMap<SectionEnrollment, SectionEnrollmentDto>()
+                    .ForMember(c => c.FullAddress,
+                        opt => opt.MapFrom(x => string.Join(' ', x.SectionId)));
+
+            CreateMap<CourseSection, CourseSectionDto>()
+                    .ForMember(c => c.FullAddress,
+                        opt => opt.MapFrom(x => string.Join(' ', x.CourseId)));
+
+            CreateMap<CourseManagement, CourseManagementDto>()
+                    .ForMember(c => c.FullAddress,
+                        opt => opt.MapFrom(x => string.Join(' ', x.Coursetitle)));
+
+            CreateMap<CourseAssignment, CourseAssignmentDto>()
+                    .ForMember(c => c.FullAddress,
+                        opt => opt.MapFrom(x => string.Join(' ', x.Assignmenttitle)));
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Entities.Models
         [Required(ErrorMessage = "User name is a required field.")]
         [MaxLength(30, ErrorMessage = "Maximum length for the Name is 30 characters.")]
         public string UserName { get; set; }
+        public string Coursetitle { get; set; }
 
         [ForeignKey(nameof(Organization))]
         public Guid OrganizationId { get; set; }

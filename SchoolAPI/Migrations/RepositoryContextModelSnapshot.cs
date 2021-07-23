@@ -26,6 +26,15 @@ namespace SchoolAPI.Migrations
                         .HasColumnName("CourseAssignmentId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Assignmenttitle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<Guid>("OrganizationId")
                         .HasColumnType("uniqueidentifier");
 
@@ -44,18 +53,14 @@ namespace SchoolAPI.Migrations
                         new
                         {
                             Id = new Guid("80abbca8-664d-4b20-b5de-024705497d4a"),
+                            Assignmenttitle = "Calender",
                             OrganizationId = new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"),
                             UserName = "pbhalala"
                         },
                         new
                         {
-                            Id = new Guid("86dba8c0-d178-41e7-938c-ed49778fb52a"),
-                            OrganizationId = new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"),
-                            UserName = "pkevin"
-                        },
-                        new
-                        {
                             Id = new Guid("021ca3c1-0deb-4afd-ae94-2159a8479811"),
+                            Assignmenttitle = "Calculator",
                             OrganizationId = new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"),
                             UserName = "payalk"
                         });
@@ -67,6 +72,9 @@ namespace SchoolAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnName("CourseManagementId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Coursetitle")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("OrganizationId")
                         .HasColumnType("uniqueidentifier");
@@ -86,18 +94,14 @@ namespace SchoolAPI.Migrations
                         new
                         {
                             Id = new Guid("80abbca8-664d-4b20-b5de-024705497d4a"),
+                            Coursetitle = "Web Systems Development",
                             OrganizationId = new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"),
                             UserName = "pbhalala"
                         },
                         new
                         {
-                            Id = new Guid("86dba8c0-d178-41e7-938c-ed49778fb52a"),
-                            OrganizationId = new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"),
-                            UserName = "pkevin"
-                        },
-                        new
-                        {
                             Id = new Guid("021ca3c1-0deb-4afd-ae94-2159a8479811"),
+                            Coursetitle = "Accounting",
                             OrganizationId = new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"),
                             UserName = "payalk"
                         });
@@ -107,8 +111,18 @@ namespace SchoolAPI.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("CourseSectionId")
+                        .HasColumnName("CourseId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CourseId")
+                        .HasColumnName("CourseSection_CourseId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("OrganizationId")
                         .HasColumnType("uniqueidentifier");
@@ -128,26 +142,20 @@ namespace SchoolAPI.Migrations
                         new
                         {
                             Id = new Guid("80abbca8-664d-4b20-b5de-024705497d4a"),
+                            CourseId = "123 098",
+                            Email = "kp12@njit.edu",
+                            Name = "Nirav",
                             OrganizationId = new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"),
                             UserName = "pbhalala"
                         },
                         new
                         {
-                            Id = new Guid("86dba8c0-d178-41e7-938c-ed49778fb52a"),
-                            OrganizationId = new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"),
-                            UserName = "pkevin"
-                        },
-                        new
-                        {
                             Id = new Guid("021ca3c1-0deb-4afd-ae94-2159a8479811"),
+                            CourseId = "765 346",
+                            Email = "pk56@njit.edu",
+                            Name = "Kevin",
                             OrganizationId = new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"),
                             UserName = "payalk"
-                        },
-                        new
-                        {
-                            Id = new Guid("021ca3c1-0deb-4afd-ae94-2159a8479812"),
-                            OrganizationId = new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"),
-                            UserName = "Kevinp"
                         });
                 });
 
@@ -194,11 +202,20 @@ namespace SchoolAPI.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("SectionEnrollment Id")
+                        .HasColumnName("SectionEnrollmentId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("OrganizationId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("SectionId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserName")
                         .IsRequired()
@@ -215,25 +232,19 @@ namespace SchoolAPI.Migrations
                         new
                         {
                             Id = new Guid("80abbca8-664d-4b20-b5de-024705497d4a"),
+                            Email = "kp12@njit.edu",
+                            Name = "Nirav",
                             OrganizationId = new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"),
+                            SectionId = "123",
                             UserName = "pbhalala"
                         },
                         new
                         {
-                            Id = new Guid("86dba8c0-d178-41e7-938c-ed49778fb52a"),
-                            OrganizationId = new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"),
-                            UserName = "pkevin"
-                        },
-                        new
-                        {
                             Id = new Guid("021ca3c1-0deb-4afd-ae94-2159a8479811"),
+                            Email = "pk56@njit.edu",
+                            Name = "Kevin",
                             OrganizationId = new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"),
-                            UserName = "payalk"
-                        },
-                        new
-                        {
-                            Id = new Guid("021ca3c1-0deb-4afd-ae94-2159a8479812"),
-                            OrganizationId = new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"),
+                            SectionId = "098",
                             UserName = "payalk"
                         });
                 });
