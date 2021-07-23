@@ -27,6 +27,9 @@ namespace SchoolAPI.Migrations
                 {
                     CourseAssignmentId = table.Column<Guid>(nullable: false),
                     UserName = table.Column<string>(maxLength: 30, nullable: false),
+                    Email = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    Assignmenttitle = table.Column<string>(nullable: true),
                     OrganizationId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
@@ -46,6 +49,7 @@ namespace SchoolAPI.Migrations
                 {
                     CourseManagementId = table.Column<Guid>(nullable: false),
                     UserName = table.Column<string>(maxLength: 30, nullable: false),
+                    Coursetitle = table.Column<string>(nullable: true),
                     OrganizationId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
@@ -63,13 +67,16 @@ namespace SchoolAPI.Migrations
                 name: "CourseSection",
                 columns: table => new
                 {
-                    CourseSectionId = table.Column<Guid>(nullable: false),
+                    CourseId = table.Column<Guid>(nullable: false),
                     UserName = table.Column<string>(maxLength: 30, nullable: false),
+                    Email = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    CourseSection_CourseId = table.Column<string>(nullable: true),
                     OrganizationId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CourseSection", x => x.CourseSectionId);
+                    table.PrimaryKey("PK_CourseSection", x => x.CourseId);
                     table.ForeignKey(
                         name: "FK_CourseSection_Organizations_OrganizationId",
                         column: x => x.OrganizationId,
@@ -82,8 +89,11 @@ namespace SchoolAPI.Migrations
                 name: "SectionEnrollments",
                 columns: table => new
                 {
-                    SectionEnrollmentId = table.Column<Guid>(name: "SectionEnrollment Id", nullable: false),
+                    SectionEnrollmentId = table.Column<Guid>(nullable: false),
                     UserName = table.Column<string>(maxLength: 30, nullable: false),
+                    Email = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    SectionId = table.Column<string>(nullable: true),
                     OrganizationId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
@@ -130,44 +140,38 @@ namespace SchoolAPI.Migrations
 
             migrationBuilder.InsertData(
                 table: "CourseAssignments",
-                columns: new[] { "CourseAssignmentId", "OrganizationId", "UserName" },
+                columns: new[] { "CourseAssignmentId", "Assignmenttitle", "Email", "Name", "OrganizationId", "UserName" },
                 values: new object[,]
                 {
-                    { new Guid("80abbca8-664d-4b20-b5de-024705497d4a"), new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"), "pbhalala" },
-                    { new Guid("86dba8c0-d178-41e7-938c-ed49778fb52a"), new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"), "pkevin" },
-                    { new Guid("021ca3c1-0deb-4afd-ae94-2159a8479811"), new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"), "payalk" }
+                    { new Guid("80abbca8-664d-4b20-b5de-024705497d4a"), "Calender", null, null, new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"), "pbhalala" },
+                    { new Guid("021ca3c1-0deb-4afd-ae94-2159a8479811"), "Calculator", null, null, new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"), "payalk" }
                 });
 
             migrationBuilder.InsertData(
                 table: "CourseManagement",
-                columns: new[] { "CourseManagementId", "OrganizationId", "UserName" },
+                columns: new[] { "CourseManagementId", "Coursetitle", "OrganizationId", "UserName" },
                 values: new object[,]
                 {
-                    { new Guid("80abbca8-664d-4b20-b5de-024705497d4a"), new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"), "pbhalala" },
-                    { new Guid("86dba8c0-d178-41e7-938c-ed49778fb52a"), new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"), "pkevin" },
-                    { new Guid("021ca3c1-0deb-4afd-ae94-2159a8479811"), new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"), "payalk" }
+                    { new Guid("80abbca8-664d-4b20-b5de-024705497d4a"), "Web Systems Development", new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"), "pbhalala" },
+                    { new Guid("021ca3c1-0deb-4afd-ae94-2159a8479811"), "Accounting", new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"), "payalk" }
                 });
 
             migrationBuilder.InsertData(
                 table: "CourseSection",
-                columns: new[] { "CourseSectionId", "OrganizationId", "UserName" },
+                columns: new[] { "CourseId", "CourseSection_CourseId", "Email", "Name", "OrganizationId", "UserName" },
                 values: new object[,]
                 {
-                    { new Guid("80abbca8-664d-4b20-b5de-024705497d4a"), new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"), "pbhalala" },
-                    { new Guid("86dba8c0-d178-41e7-938c-ed49778fb52a"), new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"), "pkevin" },
-                    { new Guid("021ca3c1-0deb-4afd-ae94-2159a8479811"), new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"), "payalk" },
-                    { new Guid("021ca3c1-0deb-4afd-ae94-2159a8479812"), new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"), "Kevinp" }
+                    { new Guid("80abbca8-664d-4b20-b5de-024705497d4a"), "123 098", "kp12@njit.edu", "Nirav", new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"), "pbhalala" },
+                    { new Guid("021ca3c1-0deb-4afd-ae94-2159a8479811"), "765 346", "pk56@njit.edu", "Kevin", new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"), "payalk" }
                 });
 
             migrationBuilder.InsertData(
                 table: "SectionEnrollments",
-                columns: new[] { "SectionEnrollment Id", "OrganizationId", "UserName" },
+                columns: new[] { "SectionEnrollmentId", "Email", "Name", "OrganizationId", "SectionId", "UserName" },
                 values: new object[,]
                 {
-                    { new Guid("80abbca8-664d-4b20-b5de-024705497d4a"), new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"), "pbhalala" },
-                    { new Guid("86dba8c0-d178-41e7-938c-ed49778fb52a"), new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"), "pkevin" },
-                    { new Guid("021ca3c1-0deb-4afd-ae94-2159a8479812"), new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"), "payalk" },
-                    { new Guid("021ca3c1-0deb-4afd-ae94-2159a8479811"), new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"), "payalk" }
+                    { new Guid("80abbca8-664d-4b20-b5de-024705497d4a"), "kp12@njit.edu", "Nirav", new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"), "123", "pbhalala" },
+                    { new Guid("021ca3c1-0deb-4afd-ae94-2159a8479811"), "pk56@njit.edu", "Kevin", new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"), "098", "payalk" }
                 });
 
             migrationBuilder.InsertData(
