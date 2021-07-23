@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SchoolAPI.Migrations
 {
-    public partial class Initialdatabse : Migration
+    public partial class Initialdata : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,7 +12,9 @@ namespace SchoolAPI.Migrations
                 columns: table => new
                 {
                     OrganizationId = table.Column<Guid>(nullable: false),
-                    OrgName = table.Column<string>(maxLength: 60, nullable: false)
+                    OrgName = table.Column<string>(maxLength: 60, nullable: false),
+                    City = table.Column<string>(nullable: true),
+                    Country = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -101,6 +103,8 @@ namespace SchoolAPI.Migrations
                 {
                     UserId = table.Column<Guid>(nullable: false),
                     UserName = table.Column<string>(maxLength: 30, nullable: false),
+                    Email = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
                     OrganizationId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
@@ -116,13 +120,13 @@ namespace SchoolAPI.Migrations
 
             migrationBuilder.InsertData(
                 table: "Organizations",
-                columns: new[] { "OrganizationId", "OrgName" },
-                values: new object[] { new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"), "ABC org" });
+                columns: new[] { "OrganizationId", "City", "Country", "OrgName" },
+                values: new object[] { new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"), "Bloomfield", "USA", "XYZ org" });
 
             migrationBuilder.InsertData(
                 table: "Organizations",
-                columns: new[] { "OrganizationId", "OrgName" },
-                values: new object[] { new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"), "NPV org" });
+                columns: new[] { "OrganizationId", "City", "Country", "OrgName" },
+                values: new object[] { new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"), "Lusaka", "ZM", "lmnop org" });
 
             migrationBuilder.InsertData(
                 table: "CourseAssignments",
@@ -151,7 +155,8 @@ namespace SchoolAPI.Migrations
                 {
                     { new Guid("80abbca8-664d-4b20-b5de-024705497d4a"), new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"), "pbhalala" },
                     { new Guid("86dba8c0-d178-41e7-938c-ed49778fb52a"), new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"), "pkevin" },
-                    { new Guid("021ca3c1-0deb-4afd-ae94-2159a8479811"), new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"), "payalk" }
+                    { new Guid("021ca3c1-0deb-4afd-ae94-2159a8479811"), new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"), "payalk" },
+                    { new Guid("021ca3c1-0deb-4afd-ae94-2159a8479812"), new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"), "Kevinp" }
                 });
 
             migrationBuilder.InsertData(
@@ -161,17 +166,18 @@ namespace SchoolAPI.Migrations
                 {
                     { new Guid("80abbca8-664d-4b20-b5de-024705497d4a"), new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"), "pbhalala" },
                     { new Guid("86dba8c0-d178-41e7-938c-ed49778fb52a"), new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"), "pkevin" },
+                    { new Guid("021ca3c1-0deb-4afd-ae94-2159a8479812"), new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"), "payalk" },
                     { new Guid("021ca3c1-0deb-4afd-ae94-2159a8479811"), new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"), "payalk" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "UserId", "OrganizationId", "UserName" },
+                columns: new[] { "UserId", "Email", "Name", "OrganizationId", "UserName" },
                 values: new object[,]
                 {
-                    { new Guid("80abbca8-664d-4b20-b5de-024705497d4a"), new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"), "pbhalala" },
-                    { new Guid("86dba8c0-d178-41e7-938c-ed49778fb52a"), new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"), "pkevin" },
-                    { new Guid("021ca3c1-0deb-4afd-ae94-2159a8479811"), new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"), "payalk" }
+                    { new Guid("80abbca8-664d-4b20-b5de-024705497d4a"), "kp12@njit.edu", "Nirav", new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"), "pbhalala" },
+                    { new Guid("86dba8c0-d178-41e7-938c-ed49778fb52a"), "nc34@njit.edu", "Payal", new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"), "pkevin" },
+                    { new Guid("021ca3c1-0deb-4afd-ae94-2159a8479811"), "pk56@njit.edu", "Kevin", new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"), "payalk" }
                 });
 
             migrationBuilder.CreateIndex(
