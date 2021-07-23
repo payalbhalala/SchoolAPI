@@ -13,6 +13,9 @@ namespace Entities.Models
         [MaxLength(30, ErrorMessage = "Maximum length for the Name is 30 characters.")]
         public string UserName { get; set; }
 
+        public string Email { get; set; }
+        public string Name { get; set; }
+
         [ForeignKey(nameof(Organization))]
         public Guid OrganizationId { get; set; }
 
