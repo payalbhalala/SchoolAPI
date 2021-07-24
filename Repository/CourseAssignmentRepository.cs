@@ -13,13 +13,25 @@ namespace Repository
             : base(repositoryContext)
         {
         }
+
         public IEnumerable<CourseAssignment> GetAllCourseAssignments(bool trackChanges) =>
           FindAll(trackChanges)
-          .OrderBy(c => c.UserName)
+          .OrderBy(c => c.Assignmenttitle)
           .ToList();
 
         public CourseAssignment GetCourseAssignment(Guid companyId, bool trackChanges) =>
          FindByCondition(c => c.Id.Equals(companyId), trackChanges)
         .SingleOrDefault();
+
+        public void CreateCourseAssignment(CourseAssignment CourseAssignment) => Create(CourseAssignment);
+
+        public IEnumerable<CourseAssignment> GetByIds(IEnumerable<Guid> ids, bool trackChanges) =>
+            FindByCondition(x => ids.Contains(x.Id), trackChanges)
+            .ToList();
+
+        public void DeleteCourseAssignment(CourseAssignment CourseAssignment)
+        {
+            Delete(CourseAssignment);
+        }
     }
 }
