@@ -62,6 +62,7 @@ namespace SchoolAPI
             });
 
             app.UseRouting();
+            
 
             app.UseAuthorization();
 
