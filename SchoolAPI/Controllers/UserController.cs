@@ -10,6 +10,7 @@ namespace SchoolAPI.Controllers
 {
     [Route("api/v1/Users")]
     [ApiController]
+    
     public class UsersController : ControllerBase
     {
         private readonly IRepositoryManager _repository;
