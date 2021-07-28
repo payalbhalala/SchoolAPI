@@ -70,3 +70,13 @@ Data Dictionary for Course Assignment Management
 ![Delete_Method1](https://user-images.githubusercontent.com/65688803/126913080-c4308d50-e316-4023-995e-bddaf37a74c9.PNG)
 ![Delete_Method2](https://user-images.githubusercontent.com/65688803/126913088-069e0861-28f4-4164-bbfc-8f37ea175470.PNG)
 
+# GET Swagger:
+![GET_Swagger](https://user-images.githubusercontent.com/65688803/127397587-7a95dec5-7e79-48a0-b3a0-2b59373c708f.PNG)
+
+# POST Swagger:
+![POST_Swagger](https://user-images.githubusercontent.com/65688803/127397661-c1faa7be-1948-42c6-a5c5-134b0aa02349.PNG)
+![POST_Swagger1](https://user-images.githubusercontent.com/65688803/127397690-53248c07-aed3-4a56-b999-0eb01ecbea9e.PNG)
+
+
+
+
