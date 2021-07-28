@@ -5,7 +5,6 @@ using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace SchoolAPI.Controllers
 {
@@ -74,7 +73,6 @@ namespace SchoolAPI.Controllers
             return CreatedAtRoute("getOrganizationById", new { id = organizationToReturn.Id }, organizationToReturn);
         }
 
-        
         [HttpPut("{id}")]
         public IActionResult UpdateOrganization(Guid id, [FromBody] OrganizationForUpdateDto organization)
         {
